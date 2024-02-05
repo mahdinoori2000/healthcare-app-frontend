@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Doctors from './pages/Doctors';
-import Navbar from './componenets/navbar/navbar/Navbar';
+import Navbar from './componenets/navbar/Navbar';
 import MyAppointments from './pages/MyAppointments';
 import AddDoctor from './pages/AddDoctor';
 import BookAppointment from './pages/BookAppointment';

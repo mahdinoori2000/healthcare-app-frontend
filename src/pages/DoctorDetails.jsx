@@ -1,6 +1,4 @@
-function DeleteDoctor() {
-  return (
-    <h2>This is DeleteDoctor page</h2>
-  );
-}
-export default DeleteDoctor;
+const DoctorDetails = () => (
+  <h2>This is DoctorDetails page</h2>
+);
+export default DoctorDetails;
