@@ -6,6 +6,7 @@ import MyAppointments from './pages/MyAppointments';
 import AddDoctor from './pages/AddDoctor';
 import BookAppointment from './pages/BookAppointment';
 import DeleteDoctor from './pages/DeleteDoctor';
+import DoctorDetails from './pages/DoctorDetails';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Doctors />} />
+        <Route path="/doctors/:id" element={<DoctorDetails />} />
         <Route path="/book-appointment" element={<BookAppointment />} />
         <Route path="/my-appointments" element={<MyAppointments />} />
         <Route path="/add-doctor" element={<AddDoctor />} />
