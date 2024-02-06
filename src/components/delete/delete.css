@@ -1,0 +1,29 @@
+.delete-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+table {
+  margin-top: 200px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.delete-table {
+  border: 1px solid gray;
+}
+
+.table-head {
+  text-align: start;
+}
