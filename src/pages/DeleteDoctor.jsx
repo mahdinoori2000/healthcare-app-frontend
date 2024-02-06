@@ -1,4 +1,10 @@
+import Delete from '../components/delete/Delete';
+import '../components/delete/delete.css';
+
 const DeleteDoctor = () => (
-  <h2>This is DeleteDoctor page</h2>
+  <div className="delete-container">
+    <Delete />
+  </div>
 );
+
 export default DeleteDoctor;
