@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { loginAsync } from '../../redux/user/userSlice';
-import './login.css';
+import login from './login.module.css';
 
 const Login = () => {
   const { loginError, success } = useSelector((store) => store.user);
@@ -31,10 +31,10 @@ const Login = () => {
   };
 
   return (
-    <section className="login-section">
-      <div className="login-container">
-        <h2 className="login-title">Login</h2>
-        <form onSubmit={handleSubmit} className="login-form" ref={formRef}>
+    <section className={login.container}>
+      <div>
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit} ref={formRef}>
           <input
             type="email"
             name="email"
@@ -49,15 +49,15 @@ const Login = () => {
             placeholder="Enter your password"
             required
           />
-          <div className="d-flex flex-column gap-2">
-            <button type="submit" className="button1 btn btn-secondary me-4 fs-4">
+          <div>
+            <button type="submit">
               Log in
             </button>
             <NavLink to="/signup">
-              <button type="button" className="button1 btn btn-secondary me-4 fs-4">Sign Up</button>
+              <button type="button">Sign Up</button>
             </NavLink>
           </div>
-          {loginError && <p className="text-danger">{loginError}</p>}
+          {loginError && <p>{loginError}</p>}
           {success && <p>{success}</p>}
         </form>
       </div>
