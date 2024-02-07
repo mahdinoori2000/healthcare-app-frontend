@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signUpAsync } from '../../redux/user/userSlice';
-import './register.css';
+import register from './register.module.css';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -53,15 +53,14 @@ const Register = () => {
   };
 
   return (
-    <section className="register-section">
-      {signError && <span className="text-danger">{signError}</span>}
-      {errors && <span className="text-danger">{errors}</span>}
-      <div className="register-container">
-        <h2 className="register-title">Sign Up</h2>
-        <form ref={formRef} onSubmit={handleSubmit} className="register-form">
+    <section className={register.container}>
+      {signError && <span>{signError}</span>}
+      {errors && <span>{errors}</span>}
+      <div>
+        <h2>Sign Up</h2>
+        <form ref={formRef} onSubmit={handleSubmit}>
           <input
             type="text"
-            className="form-control"
             name="name"
             id="name"
             placeholder="Enter your name"
@@ -69,7 +68,6 @@ const Register = () => {
           />
           <input
             type="text"
-            className="form-control"
             name="email"
             id="email"
             placeholder="Enter your email"
@@ -77,7 +75,6 @@ const Register = () => {
           />
           <input
             type="password"
-            className="form-control"
             name="password"
             id="password"
             placeholder="Enter your password"
@@ -85,21 +82,20 @@ const Register = () => {
           />
           <input
             type="password"
-            className="form-control form-control-lg"
             name="password_confirmation"
             id="password_confirmation"
             placeholder="Password confirmation"
             required
           />
-          <div className="d-flex flex-column gap-2 justify-content-center">
-            <button type="submit" className="button1 btn btn-secondary me-4 fs-4">
+          <div>
+            <button type="submit">
               Sign Up
             </button>
             <NavLink to="/login">
-              <button type="button" className="button1 btn btn-secondary me-4 fs-4">Log in</button>
+              <button type="button">Log in</button>
             </NavLink>
           </div>
-          <p className="text-danger">{mismatch}</p>
+          <p>{mismatch}</p>
           <p>{success}</p>
         </form>
       </div>

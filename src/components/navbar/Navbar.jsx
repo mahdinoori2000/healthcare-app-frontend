@@ -1,10 +1,12 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
 import { logout } from '../../redux/user/userSlice';
 import './navbar.css';
 
 const Navbar = () => {
+  const { userData } = useSelector((store) => store.user);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutUser = () => {
@@ -17,14 +19,14 @@ const Navbar = () => {
 
     <nav className="nav-container">
       <div className="profile">
-        <p>Mayito Ismail</p>
+        <p>{`Welcome ${userData.user.name}`}</p>
       </div>
       <div className="nav-links">
-        <NavLink to="/">Doctors</NavLink>
-        <NavLink to="/book-appointment">Book Appointment</NavLink>
+        <NavLink to="/doctors">Doctors</NavLink>
+        <NavLink to="/doctors/book-appointment">Book Appointment</NavLink>
         <NavLink to="/doctors/my-appointments">My Appointments</NavLink>
-        <NavLink to="/add-doctor">Add Doctor</NavLink>
-        <NavLink to="/delete-doctor">Delete Doctor</NavLink>
+        <NavLink to="/doctors/add-doctor">Add Doctor</NavLink>
+        <NavLink to="/doctors/delete-doctor">Delete Doctor</NavLink>
       </div>
       <button
         onClick={logoutUser}
