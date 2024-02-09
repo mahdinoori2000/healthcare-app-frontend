@@ -93,16 +93,16 @@
 }
 
 .btn:disabled {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 .btn1 {
-    border-bottom-left-radius: 50%;
-    border-top-left-radius: 50%;
-    position: absolute;
-    right: 0;
-    margin-right: 0;
-    border-right: none;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  position: absolute;
+  right: 0;
+  margin-right: 0;
+  border-right: none;
 }
 
 .btn2 {
