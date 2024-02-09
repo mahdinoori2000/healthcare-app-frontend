@@ -6,6 +6,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
+  position: relative;
 }
 
 .card {
@@ -82,11 +83,33 @@
 .btn {
   margin: 20px;
   background: none;
-  padding: 10px;
+  padding: 25px;
   border: 1px solid #aaa;
-  border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--bg-button-color);
+}
+
+.btn:disabled {
+    background-color: #ccc;
+}
+
+.btn1 {
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    position: absolute;
+    right: 0;
+    margin-right: 0;
+    border-right: none;
+}
+
+.btn2 {
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  position: absolute;
+  left: 0;
+  margin-left: 0;
+  border-left: none;
 }

@@ -21,7 +21,7 @@ const Doctors = () => {
   return (
     <>
       <div className={doctors.container}>
-        <button className={doctors.btn} type="button" onClick={showPrevCards} aria-label="previous" disabled={startIndex === 0}><FaArrowLeft /></button>
+        <button className={`${doctors.btn}  ${doctors.btn2}`} type="button" onClick={showPrevCards} aria-label="previous" disabled={startIndex === 0}><FaArrowLeft /></button>
         {DoctorsDetails.slice(startIndex, startIndex + 3).map((doctor) => (
           <div
             key={doctor.id}
@@ -45,7 +45,7 @@ const Doctors = () => {
             </ul>
           </div>
         ))}
-        <button className={doctors.btn} type="button" onClick={showNextCards} aria-label="next" disabled={startIndex + 3 >= DoctorsDetails.length}><FaArrowRight /></button>
+        <button className={`${doctors.btn}  ${doctors.btn1}`} type="button" onClick={showNextCards} aria-label="next" disabled={startIndex + 3 >= DoctorsDetails.length}><FaArrowRight /></button>
       </div>
     </>
   );
