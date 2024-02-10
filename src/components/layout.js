@@ -4,10 +4,10 @@ import layout from './layout.module.css';
 
 const Layout = () => (
   <div className={layout.container}>
-    <div>
+    <div className={layout.navbar}>
       <Navbar />
     </div>
-    <div>
+    <div className={layout.outlet}>
       <Outlet />
     </div>
   </div>

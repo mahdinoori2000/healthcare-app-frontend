@@ -37,21 +37,23 @@ const Navbar = () => {
       >
         Logout
       </button>
-      <ul className={navbar.social_links}>
-        <li>
-          <img src="https://jade-rabanadas-479b96.netlify.app/static/media/fb.6ede2e0d2f244fec1b76327b30e2d180.svg" alt="" />
-        </li>
-        <li>
-          <img src="https://jade-rabanadas-479b96.netlify.app/static/media/x.068f9efee7b52e070424b4c2925f2960.svg" alt="" />
-        </li>
-        <li>
-          <img src="https://jade-rabanadas-479b96.netlify.app/static/media/google.cf737c214060d873db8410bbd35aa463.svg" alt="" />
-        </li>
-        <li>
-          <img src="https://jade-rabanadas-479b96.netlify.app/static/media/linkedin.6bfb62956b5c794df40ab6045a56d21d.svg" alt="" />
-        </li>
-      </ul>
-      <p className={navbar.copyright}>@2024 Health Care App</p>
+      <div>
+        <ul className={navbar.social_links}>
+          <li>
+            <img src="https://jade-rabanadas-479b96.netlify.app/static/media/fb.6ede2e0d2f244fec1b76327b30e2d180.svg" alt="" />
+          </li>
+          <li>
+            <img src="https://jade-rabanadas-479b96.netlify.app/static/media/x.068f9efee7b52e070424b4c2925f2960.svg" alt="" />
+          </li>
+          <li>
+            <img src="https://jade-rabanadas-479b96.netlify.app/static/media/google.cf737c214060d873db8410bbd35aa463.svg" alt="" />
+          </li>
+          <li>
+            <img src="https://jade-rabanadas-479b96.netlify.app/static/media/linkedin.6bfb62956b5c794df40ab6045a56d21d.svg" alt="" />
+          </li>
+        </ul>
+        <p className={navbar.copyright}>@2024 Health Care App</p>
+      </div>
     </nav>
   );
 };
