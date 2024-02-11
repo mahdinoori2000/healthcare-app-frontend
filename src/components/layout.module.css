@@ -1,3 +1,11 @@
 .container {
   display: flex;
 }
+
+.navbar {
+  width: 15%;
+}
+
+.outlet {
+  width: 85%;
+}

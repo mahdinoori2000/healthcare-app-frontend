@@ -1,4 +1,8 @@
-const Doctors = () => (
-  <h2>This is Doctors page</h2>
+import Doctors from '../components/doctors/Doctors';
+
+const DoctorsPage = () => (
+  <>
+    <Doctors />
+  </>
 );
-export default Doctors;
+export default DoctorsPage;

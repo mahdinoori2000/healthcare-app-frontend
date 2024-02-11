@@ -24,16 +24,16 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
-.nav_links > a,
-.logout {
+.nav_links > a {
   font-size: 14px;
   text-decoration: none;
   color: #000;
-  padding: 15px 20px;
+  padding: 15px 20px 15px;
+  margin-left: 20px;
   border: none;
-  border-bottom: 1px solid var(--text-color-secondary);
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -44,9 +44,16 @@
 }
 
 .logout {
+  width: 120px;
   background: none;
-  text-align: left;
-  margin-bottom: 30px;
+  text-align: center;
+  margin: 0 0 30px 30px;
+  padding: 7px 15px;
+  cursor: pointer;
+  border: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+  background-color: var(--bg-button-color);
+  color: #fff;
 }
 
 .social_links {

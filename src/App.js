@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import MyAppointments from './pages/MyAppointments';
 import AddDoctor from './pages/AddDoctor';
-import Doctors from './pages/Doctors';
+import DoctorsPage from './pages/Doctors';
 import BookAppointment from './pages/BookAppointment';
 import DeleteDoctor from './pages/DeleteDoctor';
 import DoctorDetails from './pages/DoctorDetails';
@@ -14,14 +14,14 @@ import Layout from './components/layout';
 
 function App() {
   return (
-    <div className="app">
+    <div>
       <Routes>
         <Route exact path="/" element={<SplashScreen />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<Register />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/doctors" element={<Layout />}>
-            <Route path="/doctors" element={<Doctors />} />
+            <Route path="/doctors" element={<DoctorsPage />} />
             <Route path="/doctors/:id" element={<DoctorDetails />} />
             <Route path="/doctors/book-appointment" element={<BookAppointment />} />
             <Route path="/doctors/my-appointments" element={<MyAppointments />} />
