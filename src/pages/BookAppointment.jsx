@@ -1,4 +1,4 @@
-const BookAppointment = () => (
-  <h2>This is BookAppointment page</h2>
-);
+import AppointmentForm from '../components/appointmentForm/AppointmentForm';
+
+const BookAppointment = () => <AppointmentForm />;
 export default BookAppointment;
