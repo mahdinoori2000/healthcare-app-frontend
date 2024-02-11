@@ -1,4 +1,4 @@
-const AddDoctor = () => (
-  <h2>This is AddDoctor page</h2>
-);
+import DoctorForm from '../components/doctorForm/DoctorForm';
+
+const AddDoctor = () => <DoctorForm />;
 export default AddDoctor;
