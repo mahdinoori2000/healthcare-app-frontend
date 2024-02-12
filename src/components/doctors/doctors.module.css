@@ -29,10 +29,15 @@
 }
 
 .name {
+  text-decoration: none !important;
   text-align: center;
   font-weight: 700;
   font-size: 18px;
   position: relative;
+}
+
+.name:first-child {
+  text-decoration: none;
 }
 
 .name::before {
