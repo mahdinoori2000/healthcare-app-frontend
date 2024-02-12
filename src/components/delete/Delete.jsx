@@ -1,13 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './delete.css';
 import { NavLink } from 'react-router-dom';
-import { fetchDoctors } from '../../redux/doctor/doctorSlice';
+import { fetchDoctors, deleteDoctor } from '../../redux/doctor/doctorSlice';
+import './delete.css';
 
 function Delete() {
   const dispatch = useDispatch();
   const { doctors } = useSelector((store) => store.doctors);
-  console.log('Doctors', doctors);
+  const [message, setMessage] = useState('');
+
+  const handleDelete = (id) => {
+    dispatch(deleteDoctor(id));
+    setMessage('Doctor has been deleted successfully');
+    setTimeout(() => {
+      setMessage('');
+      dispatch(fetchDoctors());
+    }, 1000);
+  };
 
   useEffect(() => {
     dispatch(fetchDoctors());
@@ -24,13 +33,14 @@ function Delete() {
         </div>
       ) : (
         <div>
-          <div>
+          {message !== '' ? <p className="message">{message}</p> : null}
+          <div className="table-container">
             <table className="delete-table">
               <thead>
                 <tr className="table-head">
                   <th>Doctor Image</th>
                   <th>Doctor Name</th>
-                  <th>Doctor `&apos;` specialization</th>
+                  <th>Doctor &apos;s specialization</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -48,7 +58,9 @@ function Delete() {
                       <td>{name}</td>
                       <td>{specialization}</td>
                       <td>
-                        <button type="button">Delete</button>
+                        <button type="button" onClick={() => handleDelete(id)}>
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ),
