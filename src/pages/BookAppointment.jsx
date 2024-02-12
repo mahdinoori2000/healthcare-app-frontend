@@ -1,4 +1,7 @@
 import AppointmentForm from '../components/appointmentForm/AppointmentForm';
 
-const BookAppointment = () => <AppointmentForm />;
+function BookAppointment() {
+  return <AppointmentForm />;
+}
+
 export default BookAppointment;

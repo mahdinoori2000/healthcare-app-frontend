@@ -5,7 +5,7 @@ import { createDoctor } from '../../redux/doctor/doctorSlice';
 
 import './doctorform.css';
 
-const DoctorForm = () => {
+function DoctorForm() {
   const formRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -85,6 +85,6 @@ const DoctorForm = () => {
       </form>
     </div>
   );
-};
+}
 
 export default DoctorForm;
