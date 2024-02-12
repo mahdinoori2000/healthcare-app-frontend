@@ -1,79 +1,92 @@
-import Axios from 'axios';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import Cookies from 'js-cookie';
 
-const BASE_URL = 'http://localhost:3001';
+const url = 'http://localhost:3001';
 
-const initialState = {
-  appointment: [],
-  details: [],
-  status: 'idle',
-  error: null,
-};
-export const fetchAppointments = createAsyncThunk(
-  'appointment/fetchAppointments',
-  async () => {
-    const token = Cookies.get('jwt_token');
-    try {
-      const response = await Axios.get(`${BASE_URL}/api/v1/appointments`, {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      return response.data;
-    } catch (error) {
-      if (error && error.response && error.response.data.error) {
-        throw new Error(error.response.data.error);
-      } else {
-        throw new Error('network error');
-      }
+const createAppointment = createAsyncThunk('user/createAppointment', async (data) => {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-  },
-);
 
-export const createAppointment = createAsyncThunk(
-  'appointment/CreateAppointment',
-  async (data) => {
-    const token = Cookies.get('jwt_token');
-    const url = `${BASE_URL}/api/v1/appointments`;
-    try {
-      const response = Axios.post(`${url}`, data, {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      return response.data;
-    } catch (err) {
-      if (err && err.response && err.response.data.err) {
-        throw new Error(err.response.data.err);
-      } else {
-        throw new Error('network error');
-      }
-    }
-  },
-);
-
-const appointmentsSlice = createSlice({
-  name: 'appointment',
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(fetchAppointments.pending, (state) => {
-      state.status = 'loading';
-    });
-    builder.addCase(fetchAppointments.fulfilled, (state, action) => {
-      state.status = 'succeeded';
-      state.doctors = action.payload;
-    });
-    builder.addCase(fetchAppointments.rejected, (state, action) => {
-      state.status = 'failed';
-      state.error = action.error.message;
-    });
-  },
+    return await response.json();
+  } catch (error) {
+    return { error: error.message };
+  }
 });
 
-export default appointmentsSlice.reducer;
+const fetchAppointments = createAsyncThunk('doctors/fetchAppointments', async () => {
+  try {
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}`,
+    };
+
+    const response = await fetch(url, {
+      headers,
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return { error: error.message };
+  }
+});
+
+const initialState = {
+  isLoading: false,
+  appointments: [],
+  appointment: {},
+  createAppointmentMsg: {},
+  deleteAppointmentMsg: {},
+  error: undefined,
+};
+
+const appointmentSlice = createSlice({
+  name: 'appointments',
+  initialState,
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAppointments.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchAppointments.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.appointments = action.payload;
+      })
+      .addCase(fetchAppointments.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(createAppointment.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createAppointment.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.createAppointmentMsg = action.payload;
+      })
+      .addCase(createAppointment.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      });
+  },
+
+});
+
+export {
+  fetchAppointments,
+  createAppointment,
+};
+export default appointmentSlice.reducer;
