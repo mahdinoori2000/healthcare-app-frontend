@@ -38,8 +38,8 @@ function Delete() {
             <table className="delete-table">
               <thead>
                 <tr className="table-head">
-                  <th>Doctor Image</th>
-                  <th>Doctor Name</th>
+                  <th>Doctor &apos;s Image</th>
+                  <th>Doctor &apos;s Name</th>
                   <th>Doctor &apos;s specialization</th>
                   <th>Action</th>
                 </tr>
