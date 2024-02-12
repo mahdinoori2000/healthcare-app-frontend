@@ -5,7 +5,7 @@ import AddDoctor from './pages/AddDoctor';
 import DoctorsPage from './pages/Doctors';
 import BookAppointment from './pages/BookAppointment';
 import DeleteDoctor from './pages/DeleteDoctor';
-import DoctorDetails from './pages/DoctorDetails';
+import DoctorDetailsPage from './pages/DoctorDetails';
 import SplashScreen from './components/splashScreen/SplashScreen';
 import Login from './components/login/login';
 import Register from './components/register/Register';
@@ -22,7 +22,7 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/doctors" element={<Layout />}>
             <Route path="/doctors" element={<DoctorsPage />} />
-            <Route path="/doctors/:id" element={<DoctorDetails />} />
+            <Route path="/doctors/:id" element={<DoctorDetailsPage />} />
             <Route path="/doctors/book-appointment" element={<BookAppointment />} />
             <Route path="/doctors/my-appointments" element={<MyAppointments />} />
             <Route path="/doctors/add-doctor" element={<AddDoctor />} />

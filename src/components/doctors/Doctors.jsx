@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import styles from './doctors.module.css';
 import { fetchDoctors } from '../../redux/doctor/doctorSlice';
+import styles from './doctors.module.css';
 
 function Doctors() {
   const [startIndex, setStartIndex] = useState(0);
@@ -57,7 +57,7 @@ function Doctors() {
           <div className={styles.image_container}>
             <img className={styles.img} src={doctor.image_url} alt={doctor.name} />
           </div>
-          <p className={styles.name}>{doctor.name}</p>
+          <div className={styles.name}><NavLink to={`/doctors/${doctor.id}`}>{doctor.name}</NavLink></div>
           <p className={styles.specialization}>{doctor.specialization}</p>
           <ul className={styles.social_icons}>
             <li>
