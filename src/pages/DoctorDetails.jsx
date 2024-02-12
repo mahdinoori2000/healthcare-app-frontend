@@ -1,4 +1,8 @@
-function DoctorDetails() {
-  return <h2>This is DoctorDetails page</h2>;
+import DoctorDetails from '../components/doctors/DoctorDetails';
+
+function DoctorDetailsPage() {
+  return (
+    <DoctorDetails />
+  );
 }
-export default DoctorDetails;
+export default DoctorDetailsPage;
