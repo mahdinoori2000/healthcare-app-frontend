@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { signUpAsync } from '../../redux/user/userSlice';
 import register from './register.module.css';
 
-const Register = () => {
+function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const MINIMUM_PASSWORD_LENGTH = 6;
@@ -101,6 +101,6 @@ const Register = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Register;

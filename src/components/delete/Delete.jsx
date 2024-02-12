@@ -1,8 +1,8 @@
 import React from 'react';
 import './delete.css';
 
-const Delete = () => (
-  <>
+function Delete() {
+  return (
     <table className="delete-table">
       <tr className="table-head">
         <th>Doctor</th>
@@ -24,7 +24,7 @@ const Delete = () => (
         </td>
       </tr>
     </table>
-  </>
-);
+  );
+}
 
 export default Delete;

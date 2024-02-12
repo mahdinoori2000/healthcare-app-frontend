@@ -5,7 +5,7 @@ import { createDoctor } from '../../redux/doctor/doctorSlice';
 
 import './doctorform.css';
 
-const DoctorForm = () => {
+function DoctorForm() {
   const formRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const DoctorForm = () => {
       <h1 className="title">You can now create a doctor</h1>
       <form className="form" ref={formRef} onSubmit={handleSubmit}>
         <div className="form-input">
-          <label htmlFor="name">Your Full Name</label>
+          <label htmlFor="name">Doctors &apos;s Full Name</label>
           <input
             type="text"
             className="name"
@@ -80,11 +80,11 @@ const DoctorForm = () => {
           />
         </div>
         <button type="submit" className="submit-btn">
-          Create doctor
+          Create a doctor
         </button>
       </form>
     </div>
   );
-};
+}
 
 export default DoctorForm;

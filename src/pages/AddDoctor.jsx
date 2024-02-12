@@ -1,4 +1,6 @@
 import DoctorForm from '../components/doctorForm/DoctorForm';
 
-const AddDoctor = () => <DoctorForm />;
+function AddDoctor() {
+  return <DoctorForm />;
+}
 export default AddDoctor;

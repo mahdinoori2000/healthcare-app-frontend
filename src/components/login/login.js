@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { loginAsync } from '../../redux/user/userSlice';
 import login from './login.module.css';
 
-const Login = () => {
+function Login() {
   const { loginError, success } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -63,6 +63,6 @@ const Login = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Login;
