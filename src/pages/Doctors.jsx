@@ -1,8 +1,8 @@
 import Doctors from '../components/doctors/Doctors';
 
-const DoctorsPage = () => (
-  <>
+function DoctorsPage() {
+  return (
     <Doctors />
-  </>
-);
+  );
+}
 export default DoctorsPage;

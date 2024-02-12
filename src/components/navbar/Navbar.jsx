@@ -5,7 +5,7 @@ import { logout } from '../../redux/user/userSlice';
 import logo from '../../assets/logo.png';
 import navbar from './navbar.module.css';
 
-const Navbar = () => {
+function Navbar() {
   const { userData } = useSelector((store) => store.user);
   const location = useLocation();
 
@@ -56,5 +56,5 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
 export default Navbar;
