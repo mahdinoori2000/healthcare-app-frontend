@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import { fetchDoctors } from '../../redux/doctor/doctorSlice';
 import styles from './doctors.module.css';
 
-// eslint-disable-next-line react/function-component-definition
 const Doctors = () => {
   const [startIndex, setStartIndex] = useState(0);
   const { doctors, error, status } = useSelector((state) => state.doctors);
@@ -48,7 +47,6 @@ const Doctors = () => {
   }
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       <div className={styles.container}>
         <button className={`${styles.btn}  ${styles.btn2}`} type="button" onClick={showPrevCards} aria-label="previous" disabled={startIndex === 0}><FaArrowLeft /></button>

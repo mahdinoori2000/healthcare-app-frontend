@@ -11,15 +11,15 @@ function DoctorDetails() {
 
   return (
     <section className={styles.container}>
+      <button className={styles.btn} type="button" aria-label="back" onClick={() => navigate(-1)}><FaArrowLeft /></button>
       <div className="mt-20">
-        <img src={doctor.image_url} alt={doctor.name} />
-        <button type="button" aria-label="back" onClick={() => navigate(-1)}><FaArrowLeft /></button>
+        <img className={styles.img} src={doctor.image_url} alt={doctor.name} />
       </div>
-      <div>
-        <h2>{doctor.name}</h2>
+      <div className={styles.details_container}>
+        <h2 className={styles.doctor_name}>{doctor.name}</h2>
         <p>{doctor.bio}</p>
         <p>{doctor.specialization}</p>
-        <button type="button">Reserver</button>
+        <button className={styles.reserve_btn} type="button">Book an appointment</button>
       </div>
     </section>
   );
