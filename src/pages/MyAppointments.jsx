@@ -1,4 +1,7 @@
-const MyAppointments = () => (
-  <h2>This is MyAppointments page</h2>
-);
-export default MyAppointments;
+import MyAppointments from '../components/appointmentForm/MyAppointments';
+
+function MyAppointment() {
+  return <MyAppointments />;
+}
+
+export default MyAppointment;
