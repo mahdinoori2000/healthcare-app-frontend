@@ -46,7 +46,9 @@ function Delete() {
               </thead>
               <tbody>
                 {doctors.doctors.map(
-                  ({ id, name, image_url: imageURl, specialization }) => (
+                  ({
+                    id, name, image_url: imageURl, specialization,
+                  }) => (
                     <tr key={id}>
                       <td>
                         <div className="img-container">
@@ -61,7 +63,7 @@ function Delete() {
                         </button>
                       </td>
                     </tr>
-                  )
+                  ),
                 )}
               </tbody>
             </table>
