@@ -1,4 +1,8 @@
-const DoctorDetails = () => (
-  <h2>This is DoctorDetails page</h2>
-);
-export default DoctorDetails;
+import DoctorDetails from '../components/doctors/DoctorDetails';
+
+function DoctorDetailsPage() {
+  return (
+    <DoctorDetails />
+  );
+}
+export default DoctorDetailsPage;

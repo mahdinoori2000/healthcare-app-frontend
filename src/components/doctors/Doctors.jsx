@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import styles from './doctors.module.css';
 import { fetchDoctors } from '../../redux/doctor/doctorSlice';
+import styles from './doctors.module.css';
 
+// eslint-disable-next-line react/function-component-definition
 const Doctors = () => {
   const [startIndex, setStartIndex] = useState(0);
   const { doctors, error, status } = useSelector((state) => state.doctors);
@@ -47,6 +48,7 @@ const Doctors = () => {
   }
 
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       <div className={styles.container}>
         <button className={`${styles.btn}  ${styles.btn2}`} type="button" onClick={showPrevCards} aria-label="previous" disabled={startIndex === 0}><FaArrowLeft /></button>
@@ -58,7 +60,7 @@ const Doctors = () => {
             <div className={styles.image_container}>
               <img className={styles.img} src={doctor.image_url} alt={doctor.name} />
             </div>
-            <p className={styles.name}>{doctor.name}</p>
+            <div className={styles.name}><NavLink to={`/doctors/${doctor.id}`}>{doctor.name}</NavLink></div>
             <p className={styles.specialization}>{doctor.specialization}</p>
             <ul className={styles.social_icons}>
               <li>
