@@ -1,14 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
 
 const url = 'http://localhost:3001';
 
 const createAppointment = createAsyncThunk('user/createAppointment', async (data) => {
   try {
-    const response = await fetch(url, {
+    const token = Cookies.get('jwt_token');
+    const response = await fetch(`${url}/api/v1/doctors/${data.doctor_id}/appointments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     });
@@ -25,12 +27,13 @@ const createAppointment = createAsyncThunk('user/createAppointment', async (data
 
 const fetchAppointments = createAsyncThunk('doctors/fetchAppointments', async () => {
   try {
+    const token = Cookies.get('jwt_token');
     const headers = {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}`,
+      Authorization: `Bearer ${token}`,
     };
 
-    const response = await fetch(url, {
+    const response = await fetch(`${url}/api/v1/doctors/${data.doctor_id}/appointments`, {
       headers,
     });
 
