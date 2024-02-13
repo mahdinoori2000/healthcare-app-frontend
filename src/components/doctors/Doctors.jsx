@@ -65,7 +65,9 @@ function Doctors() {
               alt={doctor.name}
             />
           </div>
-          <p className={styles.name}>{doctor.name}</p>
+          <div className={styles.name}>
+            <NavLink to={`/doctors/${doctor.id}`}>{doctor.name}</NavLink>
+          </div>
           <p className={styles.specialization}>{doctor.specialization}</p>
           <ul className={styles.social_icons}>
             <li>
