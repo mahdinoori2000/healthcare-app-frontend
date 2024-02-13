@@ -1,0 +1,120 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+}
+
+.card {
+  width: 300px;
+  padding: 20px 0;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+.image_container {
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  width: 60%;
+  height: 170px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.name {
+  text-decoration: none !important;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  position: relative;
+}
+
+.name:first-child {
+  text-decoration: none;
+}
+
+.name::before {
+  content: '';
+  background-color: #999;
+  position: absolute;
+  left: 20%;
+  margin-top: 30px;
+  height: 1px;
+  width: 60%;
+}
+
+.specialization {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.bio {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 32px;
+}
+
+.social_icons {
+  list-style: none;
+  margin-left: -25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.social_icons li {
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social_icons li img {
+  width: 15px;
+}
+
+.btn {
+  margin: 20px;
+  background: none;
+  padding: 25px;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-button-color);
+}
+
+.btn:disabled {
+  background-color: #ccc;
+}
+
+.btn1 {
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  position: absolute;
+  right: 0;
+  margin-right: 0;
+  border-right: none;
+}
+
+.btn2 {
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  position: absolute;
+  left: 0;
+  margin-left: 0;
+  border-left: none;
+}
