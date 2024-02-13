@@ -33,7 +33,9 @@ function Doctors() {
     return (
       <div>
         There is no doctor in the list please
-        <NavLink to="/doctors/add-doctor">click here</NavLink> to create a
+        <NavLink to="/doctors/add-doctor">click here</NavLink>
+        {' '}
+        to create a
         doctor
       </div>
     );
