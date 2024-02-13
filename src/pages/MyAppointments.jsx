@@ -1,4 +1,7 @@
-function MyAppointments() {
-  return <h2>This is MyAppointments page</h2>;
+import MyAppointments from '../components/appointmentForm/MyAppointments';
+
+function MyAppointment() {
+  return <MyAppointments />;
 }
-export default MyAppointments;
+
+export default MyAppointment;
