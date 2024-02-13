@@ -21,7 +21,7 @@ function Navbar() {
     <nav className={navbar.nav_container}>
       <div className={navbar.profile}>
         <img src={logo} alt="Logo" className={navbar.logo} />
-        <p>{`Welcome "${userData.user.name}"`}</p>
+        {userData && userData.user && <p>{`Welcome "${userData.user.name}"`}</p>}
       </div>
       <div className={navbar.nav_links}>
         <NavLink to="/doctors" className={location.pathname === '/doctors' ? navbar.active : ''}>Doctors</NavLink>

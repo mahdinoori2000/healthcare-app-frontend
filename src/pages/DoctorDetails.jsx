@@ -1,8 +1,6 @@
 import DoctorDetails from '../components/doctors/DoctorDetails';
 
 function DoctorDetailsPage() {
-  return (
-    <DoctorDetails />
-  );
+  return <DoctorDetails />;
 }
 export default DoctorDetailsPage;

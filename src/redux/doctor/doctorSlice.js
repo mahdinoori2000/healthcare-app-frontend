@@ -58,6 +58,27 @@ export const createDoctor = createAsyncThunk(
   },
 );
 
+export const deleteDoctor = createAsyncThunk('doctor/delete', async (id) => {
+  const token = Cookies.get('jwt_token');
+  const url = `${BASE_URL}/api/v1/doctors/${id}`;
+  try {
+    const response = Axios.delete(`${url}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (err) {
+    if (err && err.response && err.response.data.err) {
+      throw new Error(err.response.data.err);
+    } else {
+      throw new Error('network error');
+    }
+  }
+});
+
 const doctorsSlice = createSlice({
   name: 'doctors',
   initialState,

@@ -1,4 +1,7 @@
+import AppointmentForm from '../components/appointmentForm/AppointmentForm';
+
 function BookAppointment() {
-  return <h2>This is BookAppointment page</h2>;
+  return <AppointmentForm />;
 }
+
 export default BookAppointment;
