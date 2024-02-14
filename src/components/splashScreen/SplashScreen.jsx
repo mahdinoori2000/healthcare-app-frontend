@@ -1,18 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './Splash.module.css';
+import logo from '../../assets/logo.png';
 
 function SplashScreen() {
   return (
-    <div className={styles.container}>
-      <div>
-        <h1>Healthcare App</h1>
-        <div>
-          <NavLink to="login">
-            <button type="button">Log in</button>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <img src={logo} alt="Logo" className="w-40 mx-auto mb-8" />
+        <h1 className="text-3xl font-bold mb-4">Welcome to Healthcare Application</h1>
+        <div className="flex justify-center space-x-4">
+          <NavLink
+            to="/login"
+            className="bg-green-primary-color text-white py-2 px-4 rounded-lg hover:bg-green-secondary-color transition duration-300"
+            activeClassName="bg-green-100"
+          >
+            Login
           </NavLink>
-          <NavLink to="signup">
-            <button type="button">Sign up</button>
+          <NavLink
+            to="/signup"
+            className="bg-green-primary-color text-white py-2 px-4 rounded-lg hover:bg-green-secondary-color transition duration-300"
+            activeClassName="bg-green-100"
+          >
+            Signup
           </NavLink>
         </div>
       </div>
