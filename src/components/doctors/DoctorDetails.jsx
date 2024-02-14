@@ -1,27 +1,19 @@
-import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { FaArrowLeft } from 'react-icons/fa';
 import styles from './doctorDetails.module.css';
-import { createAppointment } from '../../redux/appointment/appointmentsSlice';
 
 function DoctorDetails() {
   const { doctors } = useSelector((state) => state.doctors);
   const { id } = useParams();
   const doctor = doctors.doctors.find((p) => p.id === Number(id));
   const navigate = useNavigate();
-  const [doctorId] = useState();
 
-  const dispatch = useDispatch();
+  // export const doctorId = (id) => {
+  //   {id}
+  // }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const dataAppointment = {
-      appointment: {
-        doctor_id: doctorId,
-      },
-    };
-    dispatch(createAppointment(dataAppointment));
+  const handleSubmit = () => {
     navigate('/doctors/book-appointment');
   };
 
