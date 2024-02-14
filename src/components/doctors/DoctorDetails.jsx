@@ -9,6 +9,10 @@ function DoctorDetails() {
   const doctor = doctors.doctors.find((p) => p.id === Number(id));
   const navigate = useNavigate();
 
+  const handleSubmit = () => {
+    navigate('/doctors/book-appointment', { state: { doctor } });
+  };
+
   return (
     <section className={styles.container}>
       <button className={styles.btn} type="button" aria-label="back" onClick={() => navigate(-1)}><FaArrowLeft /></button>
@@ -19,7 +23,7 @@ function DoctorDetails() {
         <h2 className={styles.doctor_name}>{doctor.name}</h2>
         <p>{doctor.bio}</p>
         <p>{doctor.specialization}</p>
-        <button className={styles.reserve_btn} type="button">Book an appointment</button>
+        <button className={styles.reserve_btn} onClick={handleSubmit} type="button">Book an appointment</button>
       </div>
     </section>
   );
