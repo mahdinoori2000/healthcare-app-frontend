@@ -9,12 +9,8 @@ function DoctorDetails() {
   const doctor = doctors.doctors.find((p) => p.id === Number(id));
   const navigate = useNavigate();
 
-  // export const doctorId = (id) => {
-  //   {id}
-  // }
-
   const handleSubmit = () => {
-    navigate('/doctors/book-appointment');
+    navigate('/doctors/book-appointment', { state: { doctor } });
   };
 
   return (
