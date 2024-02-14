@@ -134,9 +134,7 @@ function BookAppointment() {
                 onChange={handleInputChange}
                 value={selectedReason}
                 type="text"
-                placeholder="Enter-reason"
-                id="image"
-                name="image"
+                placeholder="Enter the reason"
                 required
               />
             </div>
