@@ -28,7 +28,9 @@ function Delete() {
         <div>
           <p>
             There are no doctors added yet!
-            <NavLink to="/doctors/add-doctor">Click here to add</NavLink>
+            <NavLink to="/doctors/add-doctor" className="link">
+              Click here to add
+            </NavLink>
           </p>
         </div>
       ) : (
@@ -58,7 +60,11 @@ function Delete() {
                       <td>{name}</td>
                       <td>{specialization}</td>
                       <td>
-                        <button type="button" onClick={() => handleDelete(id)}>
+                        <button
+                          type="button"
+                          className="delete-btn"
+                          onClick={() => handleDelete(id)}
+                        >
                           Delete
                         </button>
                       </td>
