@@ -18,8 +18,6 @@ export default function Navbar() {
   }, []);
 
   return (
-    <>
-      {mobileScreenSize ? <MobileNav /> : <DesktopNav />}
-    </>
+    mobileScreenSize ? <MobileNav /> : <DesktopNav />
   );
 }
