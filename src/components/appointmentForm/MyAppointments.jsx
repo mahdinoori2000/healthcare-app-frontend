@@ -28,13 +28,15 @@ function MyAppointments() {
   }
 
   return (
-    <div className="flex flex-row w-[100dvw] h-[100dvh]">
-      <div className=" flex flex-col md:w-5/6 w-full bg-white  text-gray-700 dark:text-gray-800 p-4 gap-8">
-        <h1 className="md:text-right md:text-slate-800 md:pt-12 pt-4 text-4xl md:text-6xl md:font-bold  font-bold text-center md:font-['Inter'] md:leading-[72px]">My Appointments</h1>
+    <div className="flex flex-col items-center justify-center w-full h-screen">
+      <h1 className="text-4xl md:text-6xl md:font-bold font-bold text-center mb-8">
+        My Appointments
+      </h1>
+      <div className="flex flex-col items-center w-full md:w-5/6 bg-white text-gray-700 dark:text-gray-800 p-4 gap-8">
         {appointments?.length === 0 ? (
           <p>No appointments found.</p>
         ) : (
-          <div className="flex flex-col">
+          <div className="w-full">
             <table className="w-full text-sm table-auto">
               <thead className="text-xs bg-primary main-bg-dark dark:bg-secondary dark:text-gray-800">
                 <tr>
