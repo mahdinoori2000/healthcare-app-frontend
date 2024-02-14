@@ -7,9 +7,18 @@
   margin-right: auto;
 }
 
+input,
+textarea {
+  border: 2px solid #4f4c4c;
+  border-radius: 4px;
+  padding: 2px;
+}
+
 .title {
   text-align: center;
   text-transform: capitalize;
+  font-weight: 700;
+  font-size: xx-large;
 }
 
 .form {
