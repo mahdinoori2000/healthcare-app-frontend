@@ -44,7 +44,7 @@ React, redux, node, Visual Studio Code, WSL
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://healthcare-app-frontend.vercel.app/)
 
 ## Kanban Board <a name="kanban-board"></a>
 
