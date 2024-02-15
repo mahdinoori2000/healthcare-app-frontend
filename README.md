@@ -49,6 +49,7 @@ React, redux, node, Visual Studio Code, WSL
 ## Kanban Board <a name="kanban-board"></a>
 
 - Kanban board [Link](https://github.com/mahdinoori2000/healthcare-app-backend/projects/1).
+- Kanban board initial state [screenshots](./src/assets/Kanban%20board%20-%20(initial%20state).png).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
