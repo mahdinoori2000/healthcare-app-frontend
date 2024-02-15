@@ -32,33 +32,34 @@ export const signUpAsync = createAsyncThunk(
       }
       throw new Error('Unknow action error!');
     }
-  },
+  }
 );
 
-export const loginAsync = createAsyncThunk(
-  'login/Async',
-  async (formData) => {
-    try {
-      const res = await axios.post(`${url}/login`, formData, {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      });
-      const { token } = res.data;
-      const userInfo = res.data.user;
-      const expirationTimeInMinutes = 5;
-      Cookies.set('jwt_token', token, { expires: expirationTimeInMinutes / (24 * 60) });
-      Cookies.set('user_info', JSON.stringify(userInfo), { expires: expirationTimeInMinutes / (24 * 60) });
-      return res.data;
-    } catch (error) {
-      if (error.response && error.response.data && error.response.data.error) {
-        throw new Error(error.response.data.error);
-      }
-      throw new Error('Unknown action error!');
+export const loginAsync = createAsyncThunk('login/Async', async (formData) => {
+  try {
+    const res = await axios.post(`${url}/login`, formData, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
+    const { token } = res.data;
+    const userInfo = res.data.user;
+    const expirationTimeInMinutes = 30;
+    Cookies.set('jwt_token', token, {
+      expires: expirationTimeInMinutes / (24 * 60),
+    });
+    Cookies.set('user_info', JSON.stringify(userInfo), {
+      expires: expirationTimeInMinutes / (24 * 60),
+    });
+    return res.data;
+  } catch (error) {
+    if (error.response && error.response.data && error.response.data.error) {
+      throw new Error(error.response.data.error);
     }
-  },
-);
+    throw new Error('Unknown action error!');
+  }
+});
 
 const userSlice = createSlice({
   name: 'auth',
@@ -71,22 +72,26 @@ const userSlice = createSlice({
     }),
   },
   extraReducers(builder) {
-    builder.addCase(signUpAsync.fulfilled, (state, action) => ({
-      ...state,
-      userData: action.payload,
-    })).addCase(signUpAsync.rejected, (state, action) => ({
-      ...state,
-      isAuthenticated: false,
-      signError: action.error.message,
-    })).addCase(loginAsync.fulfilled, (state, action) => ({
-      ...state,
-      userData: action.payload,
-      isAuthenticated: true,
-    })).addCase(loginAsync.rejected, (state, action) => ({
-      ...state,
-      isAuthenticated: false,
-      loginError: action.error.message,
-    }));
+    builder
+      .addCase(signUpAsync.fulfilled, (state, action) => ({
+        ...state,
+        userData: action.payload,
+      }))
+      .addCase(signUpAsync.rejected, (state, action) => ({
+        ...state,
+        isAuthenticated: false,
+        signError: action.error.message,
+      }))
+      .addCase(loginAsync.fulfilled, (state, action) => ({
+        ...state,
+        userData: action.payload,
+        isAuthenticated: true,
+      }))
+      .addCase(loginAsync.rejected, (state, action) => ({
+        ...state,
+        isAuthenticated: false,
+        loginError: action.error.message,
+      }));
   },
 });
 export const { logout } = userSlice.actions;
