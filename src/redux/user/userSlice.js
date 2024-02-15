@@ -32,7 +32,7 @@ export const signUpAsync = createAsyncThunk(
       }
       throw new Error('Unknow action error!');
     }
-  }
+  },
 );
 
 export const loginAsync = createAsyncThunk('login/Async', async (formData) => {
