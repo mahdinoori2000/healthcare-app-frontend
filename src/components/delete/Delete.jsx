@@ -6,7 +6,7 @@ import './delete.css';
 
 function Delete() {
   const dispatch = useDispatch();
-  const { doctors } = useSelector((store) => store.doctors);
+  const { doctors } = useSelector((store) => store.doctors) || [];
   const [message, setMessage] = useState('');
 
   const handleDelete = (id) => {
@@ -24,7 +24,7 @@ function Delete() {
 
   return (
     <div>
-      {doctors.doctors.length === 0 ? (
+      {doctors.doctors && doctors.doctors.length === 0 ? (
         <div>
           <p>
             There are no doctors added yet!
@@ -47,30 +47,31 @@ function Delete() {
                 </tr>
               </thead>
               <tbody>
-                {doctors.doctors.map(
-                  ({
-                    id, name, image_url: imageURl, specialization,
-                  }) => (
-                    <tr key={id}>
-                      <td>
-                        <div className="img-container">
-                          <img className="img" src={imageURl} alt={name} />
-                        </div>
-                      </td>
-                      <td>{name}</td>
-                      <td>{specialization}</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="delete-btn"
-                          onClick={() => handleDelete(id)}
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  ),
-                )}
+                {doctors.doctors
+                  && doctors.doctors.map(
+                    ({
+                      id, name, image_url: imageURl, specialization,
+                    }) => (
+                      <tr key={id}>
+                        <td>
+                          <div className="img-container">
+                            <img className="img" src={imageURl} alt={name} />
+                          </div>
+                        </td>
+                        <td>{name}</td>
+                        <td>{specialization}</td>
+                        <td>
+                          <button
+                            type="button"
+                            className="delete-btn"
+                            onClick={() => handleDelete(id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ),
+                  )}
               </tbody>
             </table>
           </div>
