@@ -24,11 +24,11 @@ function DesktopNavbar() {
         {userData && userData.user && <p>{`Welcome "${userData.user.name}"`}</p>}
       </div>
       <div className={navbar.nav_links}>
-        <NavLink to="/doctors" className={location.pathname === '/doctors' ? navbar.active : ''}>Doctors</NavLink>
-        <NavLink to="/doctors/book-appointment" className={location.pathname === '/doctors/book-appointment' ? navbar.active : ''}>Book Appointment</NavLink>
-        <NavLink to="/doctors/my-appointments" className={location.pathname === '/doctors/my-appointments' ? navbar.active : ''}>My Appointments</NavLink>
-        <NavLink to="/doctors/add-doctor" className={location.pathname === '/doctors/add-doctor' ? navbar.active : ''}>Add Doctor</NavLink>
-        <NavLink to="/doctors/delete-doctor" className={location.pathname === '/doctors/delete-doctor' ? navbar.active : ''}>Delete Doctor</NavLink>
+        <NavLink to="/doctors" className={location.pathname === '/doctors' ? navbar.active_desk : ''}>Doctors</NavLink>
+        <NavLink to="/doctors/book-appointment" className={location.pathname === '/doctors/book-appointment' ? navbar.active_desk : ''}>Book Appointment</NavLink>
+        <NavLink to="/doctors/my-appointments" className={location.pathname === '/doctors/my-appointments' ? navbar.active_desk : ''}>My Appointments</NavLink>
+        <NavLink to="/doctors/add-doctor" className={location.pathname === '/doctors/add-doctor' ? navbar.active_desk : ''}>Add Doctor</NavLink>
+        <NavLink to="/doctors/delete-doctor" className={location.pathname === '/doctors/delete-doctor' ? navbar.active_desk : ''}>Delete Doctor</NavLink>
       </div>
       <button
         className={navbar.logout}

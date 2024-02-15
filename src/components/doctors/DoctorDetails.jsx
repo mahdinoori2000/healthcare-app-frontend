@@ -6,7 +6,7 @@ import styles from './doctorDetails.module.css';
 function DoctorDetails() {
   const { doctors } = useSelector((state) => state.doctors);
   const { id } = useParams();
-  const doctor = doctors.doctors.find((p) => p.id === Number(id));
+  const doctor = doctors.doctors.find((p) => p.id === Number(id)) || [];
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -16,7 +16,7 @@ function DoctorDetails() {
   return (
     <section className={styles.container}>
       <button className={styles.btn} type="button" aria-label="back" onClick={() => navigate(-1)}><FaArrowLeft /></button>
-      <div className="mt-20">
+      <div className="mt-20 mr-20">
         <img className={styles.img} src={doctor.image_url} alt={doctor.name} />
       </div>
       <div className={styles.details_container}>

@@ -27,6 +27,11 @@
   margin-bottom: 10px;
 }
 
+.nav_links > a:active {
+  background-color: var(--bg-button-color);
+  color: white;
+}
+
 .nav_links > a {
   font-size: 14px;
   text-decoration: none;
@@ -41,6 +46,12 @@
 .active {
   background-color: #fff !important;
   color: #222 !important;
+  font-weight: 700;
+}
+
+.active_desk {
+  background-color: var(--bg-button-color) !important;
+  color: #fff !important;
   font-weight: 700;
 }
 
