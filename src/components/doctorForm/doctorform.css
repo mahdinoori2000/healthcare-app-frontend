@@ -46,7 +46,7 @@ textarea {
 
 @media only screen and (max-width: 640px) {
   .container {
-    margin-top: 24px;
+    margin-top: 200px;
   }
 
   .title {
@@ -60,7 +60,7 @@ textarea {
 
 @media only screen and (max-width: 328px) {
   .container {
-    margin-top: 12px;
+    margin-top: 200px;
   }
 
   .title {

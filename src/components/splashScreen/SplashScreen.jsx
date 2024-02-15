@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import img from '../../assets/bg1.jpg';
 
 function SplashScreen() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${img})` }}>
       <div className="text-center">
         <img src={logo} alt="Logo" className="w-40 mx-auto mb-8" />
         <h1 className="text-3xl font-bold mb-4">Welcome to Healthcare Application</h1>
