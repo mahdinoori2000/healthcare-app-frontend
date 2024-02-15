@@ -1,14 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './navbar/Navbar';
-import layout from './layout.module.css';
 
 function Layout() {
   return (
-    <div className={layout.container}>
-      <div className={layout.navbar}>
+    <div className="md:flex">
+      <div className="md:w-[20%] text-md">
         <Navbar />
       </div>
-      <div className={layout.outlet}>
+      <div className="md:w-[85%]">
         <Outlet />
       </div>
     </div>
