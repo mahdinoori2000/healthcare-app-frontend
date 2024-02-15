@@ -17,7 +17,7 @@ const createAppointment = createAsyncThunk(
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(dataAppointment),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -28,7 +28,7 @@ const createAppointment = createAsyncThunk(
     } catch (error) {
       return { error: error.message };
     }
-  }
+  },
 );
 
 const fetchAppointments = createAsyncThunk(
@@ -54,7 +54,7 @@ const fetchAppointments = createAsyncThunk(
     } catch (error) {
       return { error: error.message };
     }
-  }
+  },
 );
 
 const initialState = {

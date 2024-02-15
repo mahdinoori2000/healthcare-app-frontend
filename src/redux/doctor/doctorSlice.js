@@ -31,7 +31,7 @@ export const fetchDoctors = createAsyncThunk(
         throw new Error('network error');
       }
     }
-  }
+  },
 );
 
 export const createDoctor = createAsyncThunk(
@@ -55,7 +55,7 @@ export const createDoctor = createAsyncThunk(
         throw new Error('network error');
       }
     }
-  }
+  },
 );
 
 export const deleteDoctor = createAsyncThunk('doctor/delete', async (id) => {
