@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { loginAsync } from '../../redux/user/userSlice';
 import logo from '../../assets/logo.png';
+import img from '../../assets/bg1.jpg';
 
 function Login() {
   const { loginError, success } = useSelector((store) => store.user);
@@ -31,11 +32,11 @@ function Login() {
   };
 
   return (
-    <section className="g-6 flex flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200 h-[100vh]">
-      <div className="w-full">
+    <section className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: `url(${img})` }}>
+      <div className="flex items-center justify-center flex-col gap-6 w-4/5 p-12 md:max-w-fit md:max-h-fit bg-white rounded-md">
         <div className="block rounded-lg bg-white">
-          <div className="px-4 md:px-0 md:w-6/12 m-auto">
-            <div className="p-6 md:mx-6 md:p-12">
+          <div className="text-gray-500 font-bold text-1xl">
+            <div className="p-6 md:mx-6 md:p-5">
               {/* <!--Logo--> */}
               <div className="text-center mb-4">
                 <img
