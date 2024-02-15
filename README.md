@@ -13,7 +13,6 @@
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
   - [Back-end API Project](#back-end)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -88,14 +87,6 @@ To run the project, execute the following command:
 
 ```
   npm start
-```
-
-### Run tests <a name="run tests"></a>
-
-To test, run:
-
-```
-  npm test
 ```
 
 ### Back-end API Project <a name="back-end"></a>
