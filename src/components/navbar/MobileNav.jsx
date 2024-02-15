@@ -1,14 +1,26 @@
+import Cookies from 'js-cookie';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
-import { useLocation } from 'react-router-dom';
-import logoWhite from '../../assets/logo.png';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import MobileNavItems from './MobileNavItems';
+import logoWhite from '../../assets/logo.png';
 import navbar from './navbar.module.css';
+import { logout } from '../../redux/user/userSlice';
 
 export default function MobileNav() {
   const location = useLocation();
   const [openNav, setOpenNav] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const logoutUser = () => {
+    dispatch(logout());
+    Cookies.remove('jwt_token');
+    Cookies.remove('user_info');
+    navigate('/');
+  };
 
   const handleItemClick = () => {
     setOpenNav(false);
@@ -57,7 +69,7 @@ export default function MobileNav() {
           openNav ? 'translate-x-0' : '-translate-x-full'
         } fixed top-0 left-0 z-40 w-[100%] h-screen bg-green-primary-color text-white transition-transform ease-in-out duration-500`}
       >
-        <ul className="h-full flex flex-col items-center justify-center gap-1 text-black">
+        <ul className="relative h-full flex flex-col items-center justify-center gap-1 text-black">
           <MobileNavItems
             path="/doctors"
             name="Doctors"
@@ -89,6 +101,13 @@ export default function MobileNav() {
             className={`${location.pathname === '/doctors/delete-doctor' ? navbar.active : ''}`}
           />
         </ul>
+        <button
+          className="absolute left-[40%] bottom-[50px] text-black bg-white px-10 py-5"
+          onClick={logoutUser}
+          type="button"
+        >
+          Logout
+        </button>
       </div>
     </div>
   );
