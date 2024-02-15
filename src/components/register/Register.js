@@ -26,7 +26,9 @@ function Register() {
     const passwordConfirmation = formData.get('password_confirmation');
 
     if (password.length < MINIMUM_PASSWORD_LENGTH) {
-      setErrors(`Password must be at least ${MINIMUM_PASSWORD_LENGTH} characters!`);
+      setErrors(
+        `Password must be at least ${MINIMUM_PASSWORD_LENGTH} characters!`,
+      );
       return;
     }
 
@@ -54,17 +56,16 @@ function Register() {
   };
 
   return (
-    <section className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: `url(${img})` }}>
+    <section
+      className="flex items-center justify-center h-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(${img})` }}
+    >
       <div className="flex items-center justify-center flex-col gap-6 w-4/5 p-12 md:max-w-fit md:max-h-fit bg-white rounded-md">
         <div className="block rounded-lg bg-white">
           <div className="text-gray-500 font-bold text-1xl">
             <div className="p-6 md:mx-6 md:p-12">
               <div className="text-center mb-4">
-                <img
-                  className="mx-auto w-48"
-                  src={logo}
-                  alt="logo"
-                />
+                <img className="mx-auto w-48" src={logo} alt="logo" />
               </div>
 
               <form ref={formRef} onSubmit={handleSubmit}>
@@ -127,12 +128,11 @@ function Register() {
                 <div className="flex items-center justify-between pb-6">
                   <p className="mb-0 mr-2">Have already an account?</p>
                   <NavLink to="/login">
-
                     <button
                       type="button"
                       className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
                     >
-                      Login
+                      Sign up
                     </button>
                   </NavLink>
                 </div>
