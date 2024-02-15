@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://healthcare-ck31.onrender.com';
 
 const initialState = {
   doctors: [],
