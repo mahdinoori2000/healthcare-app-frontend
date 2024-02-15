@@ -26,7 +26,7 @@ function Delete() {
     <div>
       {doctors.doctors.length === 0 ? (
         <div>
-          <p>
+          <p className="delete-intro">
             There are no doctors added yet!
             <NavLink to="/doctors/add-doctor" className="link">
               Click here to add
