@@ -27,11 +27,6 @@
   margin-bottom: 10px;
 }
 
-.nav_links > a:active {
-  background-color: var(--bg-button-color);
-  color: white;
-}
-
 .nav_links > a {
   font-size: 14px;
   text-decoration: none;
