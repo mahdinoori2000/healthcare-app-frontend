@@ -43,3 +43,40 @@ textarea {
   color: #fff;
   font-weight: 600;
 }
+
+@media only screen and (max-width: 640px) {
+  .container {
+    margin-top: 24px;
+  }
+
+  .title {
+    font-size: large;
+  }
+
+  .form {
+    gap: 12px;
+  }
+}
+
+@media only screen and (max-width: 328px) {
+  .container {
+    margin-top: 12px;
+  }
+
+  .title {
+    font-size: small;
+  }
+
+  .form {
+    gap: 6px;
+  }
+
+  .form-input {
+    font-size: small;
+  }
+
+  .submit-btn {
+    font-size: small;
+    padding: 4px;
+  }
+}

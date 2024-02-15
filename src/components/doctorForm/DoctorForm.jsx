@@ -75,7 +75,7 @@ function DoctorForm() {
             placeholder="Enter doctor bio"
             name="bio"
             id="bio"
-            rows="6"
+            rows="4"
             required
           />
         </div>

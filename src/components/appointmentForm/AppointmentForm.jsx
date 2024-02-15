@@ -8,7 +8,6 @@ import Select from '@mui/material/Select';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { fetchDoctors } from '../../redux/doctor/doctorSlice';
@@ -22,17 +21,16 @@ function BookAppointment() {
   const [doctorId, setDoctorId] = useState();
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedDate, setSelectedDate] = useState(dayjs());
-  const [selectedTime, setSelectedTime] = useState(dayjs());
+  const [selectedReason, setSelectedReason] = useState('');
 
   // Ensure fetchedDoctors is initialized as an array
-  const fetchedDoctors = useSelector((state) => state.doctors.doctors) || [];
+  const fetchedDoctors = useSelector((state) => state.doctors.doctors.doctors) || [];
 
   const dispatch = useDispatch();
 
   const handleBookAppointment = () => {
     const formattedDate = selectedDate.format('YYYY-MM-DD');
-    const formattedTime = selectedTime.format('HH:mm:ss.SSS');
-    const formattedDateTime = `${formattedDate}T${formattedTime}Z`;
+    const formattedDateTime = `${formattedDate}`;
     return formattedDateTime;
   };
 
@@ -44,9 +42,7 @@ function BookAppointment() {
     setSelectedDate(newDate);
   };
 
-  const handleTimeChange = (newTime) => {
-    setSelectedTime(newTime);
-  };
+  const handleInputChange = (event) => { setSelectedReason(event.target.value); };
 
   const handleSelectedDoctor = (event) => {
     const doctor = event.target.value;
@@ -57,13 +53,16 @@ function BookAppointment() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const dataAppoinment = {
-      appointment_time: handleBookAppointment(),
-      city: selectedCity,
-      doctor_id: doctorId,
+    const dataAppointment = {
+      appointment: {
+        date: handleBookAppointment(),
+        city: selectedCity,
+        doctor_id: doctorId,
+        reason: selectedReason,
+      },
     };
-    dispatch(createAppointment(dataAppoinment));
-    navigate('/myappointment');
+    dispatch(createAppointment(dataAppointment));
+    navigate('/doctors/my-appointments');
   };
 
   useEffect(() => {
@@ -72,83 +71,77 @@ function BookAppointment() {
       setSelectedDoctor(name);
     }
     dispatch(fetchDoctors());
-  }, [dispatch, selectedDoctor, selectedDate, selectedTime, id, name]);
+  }, [dispatch, selectedDoctor, selectedDate, id, name]);
 
   return (
-    <div className="flex flex-row justify-center items-center md:items-end w-[100vw] h-[100vh] overflow-hidden">
-      <div className="flex flex-col h-full items-center md:items-end w-[85%] bg-white justify-center overflow-hidden">
-        <div className="flex h-full flex-col justify-center  items-end gap-12 md:pr-16 pr-0 w-full">
-          <div>
-            <h1 className="md:text-right md:text-slate-800 text-4xl md:text-6xl md:font-bold  font-bold text-center md:font-['Inter'] md:leading-[72px]">Book Appointment</h1>
-          </div>
-          <form className="flex w-full md:max-w-fit flex-col md:flex-row items-center justify-center gap-6 md:pl-8">
-            <FormControl className="flex md:flex-1 flex-none w-full" sx={{ m: 1, minWidth: 200 }}>
-              <InputLabel id="demo-simple-select-helper-label">Select your doctor</InputLabel>
-              <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                value={selectedDoctor}
-                label="Select doctor"
-                onChange={handleSelectedDoctor}
-              >
-                {Array.isArray(fetchedDoctors) && fetchedDoctors.map((doctor) => (
-                  <MenuItem
-                    key={doctor.name}
-                    value={doctor.name}
-                  >
-                    {doctor.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            <FormControl className="flex md:flex-1 flex-none w-full" sx={{ m: 1, minWidth: 200 }}>
-              <InputLabel id="demo-simple-select-helper-label">Select a city</InputLabel>
-              <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                value={selectedCity}
-                label="Select doctor"
-                onChange={handleSelectedCity}
-              >
-                {cities.map((city) => (
-                  <MenuItem key={city} value={city}>
-                    {city}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            <div className="flex flex-2 flex-col md:flex-row justify-between gap-8 mb-2 w-full">
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer className="w-full" components={['DatePicker']}>
-                  <DatePicker
-                    className="flex flex-1"
-                    label="Select a date"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                  />
-                </DemoContainer>
-                <DemoContainer components={['TimePicker']}>
-                  <TimePicker
-                    className="flex md:flex-1 flex-none"
-                    label="Select a time"
-                    value={selectedTime}
-                    onChange={handleTimeChange}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </div>
-          </form>
-          <div className="flex w-full justify-center md:justify-end">
-            <button
-              className="p-4 self-end text-white bg-lime-500 rounded-r-[80px] rounded-l-[80px]"
-              type="submit"
-              onClick={handleSubmit}
-              aria-label="Next"
+    <div className="flex flex-col justify-center items-center h-screen bg-white">
+      <div className="max-w-lg w-full">
+        <h1 className="text-4xl md:text-6xl font-bold text-center mb-8">Book Appointment</h1>
+        <form className="flex flex-col gap-6">
+          <FormControl className="w-full">
+            <InputLabel id="demo-simple-select-helper-label">Select your doctor</InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={selectedDoctor}
+              label="Select doctor"
+              onChange={handleSelectedDoctor}
             >
-              Book Appointment
-            </button>
+              {Array.isArray(fetchedDoctors) && fetchedDoctors.map((doctor) => (
+                <MenuItem
+                  key={doctor.name}
+                  value={doctor.name}
+                >
+                  {doctor.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl className="w-full">
+            <InputLabel id="demo-simple-select-helper-label">Select a city</InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={selectedCity}
+              label="Select doctor"
+              onChange={handleSelectedCity}
+            >
+              {cities.map((city) => (
+                <MenuItem key={city} value={city}>
+                  {city}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <div className="flex flex-col gap-4">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer components={['DatePicker']}>
+                <DatePicker
+                  className="w-full"
+                  label="Select a date"
+                  value={selectedDate}
+                  onChange={handleDateChange}
+                />
+              </DemoContainer>
+            </LocalizationProvider>
+            <input
+              className="w-full h-12 border border-gray-300 rounded-md pl-4"
+              onChange={handleInputChange}
+              value={selectedReason}
+              type="text"
+              placeholder="Enter the reason"
+              required
+            />
           </div>
-        </div>
+          <button
+            className="py-3 bg-lime-500 text-white rounded-full"
+            type="submit"
+            onClick={handleSubmit}
+            aria-label="Next"
+          >
+            Book Appointment
+          </button>
+        </form>
       </div>
     </div>
   );
