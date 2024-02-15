@@ -10,7 +10,7 @@ const initialState = {
   loginError: null,
 };
 
-const url = 'http://localhost:3001';
+const url = 'https://healthcare-ck31.onrender.com';
 
 export const signUpAsync = createAsyncThunk(
   'signup/Async',

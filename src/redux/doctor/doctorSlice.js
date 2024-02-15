@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://healthcare-ck31.onrender.com';
 
 const initialState = {
   doctors: [],
@@ -31,7 +31,7 @@ export const fetchDoctors = createAsyncThunk(
         throw new Error('network error');
       }
     }
-  },
+  }
 );
 
 export const createDoctor = createAsyncThunk(
@@ -55,7 +55,7 @@ export const createDoctor = createAsyncThunk(
         throw new Error('network error');
       }
     }
-  },
+  }
 );
 
 export const deleteDoctor = createAsyncThunk('doctor/delete', async (id) => {
