@@ -39,8 +39,9 @@
 }
 
 .active {
-  background-color: var(--bg-button-color) !important;
-  color: #fff !important;
+  background-color: #fff !important;
+  color: #222 !important;
+  font-weight: 700;
 }
 
 .logout {
