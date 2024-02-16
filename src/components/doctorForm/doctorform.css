@@ -46,7 +46,7 @@ textarea {
 
 @media only screen and (max-width: 640px) {
   .container {
-    margin-top: 200px;
+    margin-top: 0;
   }
 
   .title {
@@ -55,12 +55,14 @@ textarea {
 
   .form {
     gap: 12px;
+    padding: 12px;
+    font-size: small;
   }
 }
 
 @media only screen and (max-width: 328px) {
   .container {
-    margin-top: 200px;
+    margin-top: 0;
   }
 
   .title {
