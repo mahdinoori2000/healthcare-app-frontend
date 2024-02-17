@@ -1,0 +1,17 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: var(--bg-primary-color) !important;
+}
+
+:root {
+  --bg-primary-color: #fff;
+  --bg-button-color: #97bf0f;
+  --text-color-secondary: #c2c4c3;
+  --bg-button-secondary: #efefef;
+}
+
+.app {
+  background-color: var(--bg-primary-color);
+  display: flex;
+}

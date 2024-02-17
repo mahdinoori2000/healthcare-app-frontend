@@ -1,0 +1,77 @@
+.nav_container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  border-right: 1px solid var(--text-color-secondary);
+}
+
+.logo {
+  width: 140px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.profile {
+  margin: 30px 0 40px 0;
+  padding: 0 20px;
+}
+
+.profile p {
+  font-weight: bold;
+}
+
+.nav_links {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.nav_links > a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
+  padding: 15px 20px 15px;
+  margin-left: 20px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.active {
+  background-color: #fff !important;
+  color: #222 !important;
+  font-weight: 700;
+}
+
+.active_desk {
+  background-color: var(--bg-button-color) !important;
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.logout {
+  width: 120px;
+  background: none;
+  text-align: center;
+  margin: 0 0 30px 30px;
+  padding: 7px 15px;
+  cursor: pointer;
+  border: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+  background-color: var(--bg-button-color);
+  color: #fff;
+}
+
+.social_links {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 0;
+}
+
+.copyright {
+  color: grey;
+  padding: 0 20px;
+}
